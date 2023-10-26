@@ -1,13 +1,13 @@
 import React from 'react'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import QuestionForm from '../QuestionForm/QuestionForm'
 import './Navbar.css'
-const Navbar = () => {
-  const [isDisplayed, setIsDisplayed] = useState(false);
+const Navbar = ({dialogBoxState,setShowDialogBox}) => {
 
   const handleButtonClick = () => {
-    setIsDisplayed(!isDisplayed);
+    if(dialogBoxState)
+      setShowDialogBox(false)
+    else
+    setShowDialogBox(true)
   };
 
   return (
@@ -27,11 +27,10 @@ const Navbar = () => {
       <Link className='navlink' to="" > <i className="fa-solid fa-globe "></i></Link>
 
       <div className='addQuestionContainer'>
-        <button className='addBtn ' onClick={handleButtonClick} >Add question</button>
+        <button className='addBtn ' onClick={()=>handleButtonClick()} >Add question</button>
         <button className='menuBtn ' ><i className="fa-solid fa-chevron-down"></i></button>
        
-        {isDisplayed && <QuestionForm status={setIsDisplayed} />}
-
+   
       </div>
     </nav>
   )

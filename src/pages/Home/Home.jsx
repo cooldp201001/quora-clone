@@ -4,7 +4,7 @@ import React from 'react'
  import PostSection from '../../components/PostSection/PostSection'
  import './Home.css'
 import { Helmet } from 'react-helmet'
-const Home = () => {
+const Home = (props)  => {
   return (
    <>
    <Helmet>
@@ -12,7 +12,7 @@ const Home = () => {
    </Helmet>
     <section className='homePage'>
  <Spaces/>
-  <WritePost/>
+  <WritePost {...props} />
   <PostSection/>
     </section>
     </>
